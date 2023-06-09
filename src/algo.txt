@@ -1,0 +1,6 @@
+Firstly we take login from the patient we take public key through the login and store that 
+to the firebase and throught the login we store take the name of the docter we automatically add the 
+patients address to the docter by calling 
+
+
+we are creating the script through which we can pass the value 

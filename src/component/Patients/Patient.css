@@ -1,0 +1,109 @@
+.____container{
+    background-color: #302f7f;
+} 
+.____container_first{
+    display:grid;
+    grid-template-columns: 0.3fr 1fr;
+    padding-top:3rem;
+    padding-left: 3rem;
+    
+}
+.____Name_container{
+    color:aliceblue;
+    height:50px;
+    background-color: red;
+    width: 50%;
+    font-weight: bold;
+    font-size: 2rem;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+.____Address_container{
+    color:aliceblue;
+    height:50px;
+    background-color: red;
+    width:75%;
+    font-weight: bold;
+    font-size: 2rem;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+.____container_second{
+    display: flex;
+    flex-direction: column;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    transform-style: preserve-3d;
+    perspective: 1px;
+    height: 30rem;
+    border-radius: 1.5rem;
+}
+.____container_second::-webkit-scrollbar{
+    width:10px;
+}
+.____container_second::-webkit-scrollbar-track{
+    background-color: #2421a5;
+    border-radius: 100px;
+}
+.____container_second::-webkit-scrollbar-thumb{
+     background-color: #06040e;
+     border-radius: 100px;
+}
+.____medicine{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(196, 228, 13);
+    margin-bottom:10px;
+    width:50%;
+    margin-top:3rem;
+    margin-left:20%;
+    margin-right: auto;
+    padding:10px;
+    border-radius: 1rem;   
+    cursor: pointer;
+}
+.____medicine_name{
+    display:grid;
+    grid-template-columns: 1fr 0.4fr;
+    color:rgb(19, 131, 103);
+    font-weight: bold;
+    font-size: 30px;
+}
+.____medicine_quantity{
+    color:rgb(68, 46, 65);
+    font-weight: bold;
+    font-size: 15px;
+}
+.____date{
+    color:rgb(236, 252, 22);
+}
+.____add_medicine{
+    margin-left:25%;
+    margin-right: auto;
+    width:100px; 
+    margin-top:10px;
+    border-radius: 5px;
+    background:darkgoldenrod;
+    cursor: pointer;
+    border: none;
+    color:white;
+    font-weight: bold;
+}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+.____add_medicine:active{
+    background-color: blue;
+}
+.____quantity{
+    outline: none;
+    border: transparent;
+    border-radius: 6px;
+}
+::placeholder{
+    color:red;
+}
+input{
+    color:gray;
+    font-weight: bold;
+}

@@ -1,0 +1,88 @@
+
+.__container{
+        /* background-image: url( '../../doctor-visiting-a-patient-during-corona.svg' ); */
+        background-position:center;
+        background-repeat: no-repeat;
+        background-color: rgb(73, 73, 151);
+        
+}
+.__container_first{
+    display:grid;
+    grid-template-columns: 0.3fr 1fr;
+    padding-top:3rem;
+    padding-left: 3rem;
+}
+.__Name_container{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:aliceblue;
+    height:50px;
+    background-color: red;
+    width: 50%;
+    font-weight: bold;
+    font-size: 2rem;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+.__Address_container{
+    color:aliceblue;
+    height:50px;
+    background-color: red;
+    width:75%;
+    font-weight: bold;
+    font-size: 2rem;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.__medicine{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(196, 228, 13,0.7);
+    margin-bottom:10px;
+    width:50%;
+    margin-top:3rem;
+    margin-left:20%;
+    margin-right: auto;
+    padding:10px;
+    border-radius: 1rem;   
+    cursor: pointer;
+}
+.__medicine_name{
+    display:grid;
+    grid-template-columns: 1fr 0.4fr;
+    color:rgb(19, 131, 103);
+    font-weight: bold;
+    font-size: 30px;
+}
+.__medicine_quantity{
+    color:rgb(68, 46, 65);
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.__container_second{
+    display: flex;
+    flex-direction: column;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    transform-style: preserve-3d;
+    perspective: 1px;
+    border-radius: 1.5rem;
+    height: 500px;
+    margin-top: 40px;
+}
+.__container_second::-webkit-scrollbar{
+    width:6px;
+}
+.__container_second::-webkit-scrollbar-track{
+    background-color: #e4e4e4;
+    border-radius: 100px;
+}
+.__container_second::-webkit-scrollbar-thumb{
+     background-color: #d39999;
+     border-radius: 100px;
+}
+.__date{
+    color:rgb(90, 112, 231);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

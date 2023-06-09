@@ -1,0 +1,55 @@
+._container{
+    background-color:rgb(79, 33, 178);
+    height:730px;
+    
+}
+._container:hover{
+    box-shadow: 10px 10px 10px 10px rgba(117, 163, 198, 0.9);
+}
+._container_first{
+    display:grid;
+    grid-template-columns: 0.3fr 1fr;
+    padding-top:3rem;
+    padding-left: 3rem;
+}
+._Name_container{
+    color:aliceblue;
+    height:50px;
+    background-color: red;
+    width: 50%;
+    font-weight: bold;
+    font-size: 2rem;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+._Address_container{
+    color:aliceblue;
+    height:50px;
+    background-color: red;
+    width:75%;
+    font-weight: bold;
+    font-size: 2rem;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+._container_second{
+    display: flex;
+    flex-direction: column;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    transform-style: preserve-3d;
+    perspective: 1px;
+    border-radius: 1.5rem;
+}
+._container_second::-webkit-scrollbar{
+    width:6px;
+}
+._container_second::-webkit-scrollbar-track{
+    background-color: #e4e4e4;
+    border-radius: 100px;
+}
+._container_second::-webkit-scrollbar-thumb{
+     background-color: #22ebb9;
+     border-radius: 100px;
+}
