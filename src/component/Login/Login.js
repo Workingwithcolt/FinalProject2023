@@ -60,6 +60,7 @@ const connectWallet = async () => {
       console.log("Connected to chain:" + chainId);
       const rinkebyChainId = "0x5";
       if (chainId !== rinkebyChainId) {
+        
         alert("You are not connected to the Rinkeby Testnet!");
         return;
       }

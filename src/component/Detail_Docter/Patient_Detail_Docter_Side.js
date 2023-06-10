@@ -15,6 +15,7 @@ import { LoginInfoContext } from '../LoginContext/DataContext';
 
 export const Patient_Detail_Docter_Side = (props) => {
     const {CurrentAccount} = useContext(LoginInfoContext)
+    
     const getAllMedicine = async (address) => {
         var PatientMedicines = []
         try {
@@ -40,14 +41,15 @@ export const Patient_Detail_Docter_Side = (props) => {
                     })
                 }
             } else {
-                return "Please Install Ethereum"
+                return 1
             }
         } catch (error) {
-            return error + "this error Occur"
+            return 2
         }
         return PatientMedicines;
     } 
-
+    // "Please Install Ethereum" 1
+    // error 2 
     const MedicalMedicines = async () => {
         const data  = []
         try {
@@ -62,10 +64,10 @@ export const Patient_Detail_Docter_Side = (props) => {
                 )
                 data  = await TaskContract.getAllmedicine();
             } else {
-                return "Please Install Ethereum"
+                return 1
             }
         } catch (error) {
-            return error + "this error Occur"
+            return 2
         }
         return data;
     }
@@ -78,18 +80,30 @@ export const Patient_Detail_Docter_Side = (props) => {
     const address = searchparams.get("address")
     const [medicine,setmedicines] = useState(null)
     const [medicalMed,setMedicalMed] = useState([])
-    const filterItems = (arr, query) => {
-        return arr.filter(element => 
-        element.Name.toLowerCase().indexOf(query.toLowerCase()) !== -1)
-    }
 
-    useEffect( async()=>{
+    useEffect( async ()=>{
         const data1 = await getAllMedicine(CurrentAccount)
         setmedicines(data1)
-        const data2  = await  MedicalMedicines()
+        const data2  =await  MedicalMedicines()
         setMedicalMed(data2)
-    })
-
+    },[])
+    if(medicine === 1 || medicalMed === 1){
+        return <div class="alert alert-danger" role="alert">
+            Please Install Ethereum
+        </div>
+    }
+    if(medicine === 2 || medicalMed === 2 ){
+        return <div class="alert alert-danger" role="alert">
+        Please Connect to Internet
+    </div>
+    }
+    const filterItems = (arr, query) => {
+        console.log(arr)
+        if(arr.length > 1){
+            return arr.filter(element => 
+                element.Name.toLowerCase().indexOf(query.toLowerCase()) !== -1)
+        }
+    }   
     if(medicalMed.length < 1){
         return <>
         <div>Data is Not present</div>
@@ -112,10 +126,19 @@ export const Patient_Detail_Docter_Side = (props) => {
                 <div className='___mid'>
                     <div className='___medicine_detail'>
                         <Search handleSearch = {(e)=>setSearchValue(e)}/>
-                        {(medicalMed !== null) && filterItems(medicalMed,searchvalue).map((e)=>(<MedicalMedicine name = {e.Name}/>))}
+                        {(medicalMed.length >1) && filterItems(medicalMed,searchvalue).map((e)=>(<MedicalMedicine name = {e.Name}/>))}
                     </div>
                     <div className="___current_medicine">
-                        <Medicine data = {medicine}/>
+                        {
+                            (medicine.length >1)
+                            ?
+                            <Medicine data = { medicine}/>
+                            :<>
+                                    <div class="alert mx-auto my-4 alert-danger" role="alert">
+                                        There is No Any Medicine
+                                    </div>
+                            </>
+                        }
                     </div>
                 </div>
             </div>

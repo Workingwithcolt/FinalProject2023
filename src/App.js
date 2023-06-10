@@ -107,7 +107,7 @@ function App(props) {
           } />
 
 <Route
-          path="/patient/add/"
+          path="/login/Docter/addPatient/"
           element={
             <LoginContext>
               <AddPatientByDoctor/>
@@ -149,8 +149,7 @@ function App(props) {
           element={<Patient />
           } />
 
-        <Route path={`/login/Docter/patient`} element={<LoginContext><Patient_Detail_Docter_Side  /></LoginContext>} />
-
+        <Route path={`/login/Docter/patient`} element={<LoginContext><Patient_Detail_Docter_Side  /></LoginContext>} /> 
       </Routes>
 
 

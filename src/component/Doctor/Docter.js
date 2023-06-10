@@ -11,12 +11,9 @@ import { logout } from '../ContractMethod';
 import Logout from '../Logout/logout';
 import { db } from '../Firebase/firebase';
 import { onValue, ref } from "firebase/database";
-import { ethers } from "ethers";
-import TaskAbi from "../utils/TaskContract.json"
 
 const dataBase = db;
 var records = [];
-
 
 export const Docter = () => {
 
@@ -39,6 +36,10 @@ export const Docter = () => {
         SetCurrentAccount("Account")
         SetAccess(false)
         navigate("/")
+      }
+
+      const handleShow = ()=>{
+        navigate("/login/Docter/addPatient/")
       }
 
     if(!data){
@@ -72,6 +73,21 @@ export const Docter = () => {
                 <div className='_Address_container'>
                     0xe66d125041f0eabc15E0dEe318aBF49f8c864451
                 </div>
+            </div>
+            <div 
+            style={{
+                display:"flex",
+                flexDirection:"row",
+                justifyContent:"flex-end",
+                marginBottom:"3rem",
+                padding:"30px",
+                fontWeight:"bold",
+                color:"red",
+                fontSize:"20px",
+                cursor:"pointer"
+            }}
+            onClick={handleShow}>
+                +AddPatient
             </div>
             
             <div className="_container_second">
