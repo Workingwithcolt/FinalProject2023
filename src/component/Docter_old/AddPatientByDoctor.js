@@ -30,6 +30,10 @@ export const AddPatientByDoctor = () => {
                     TaskAbi.abi,
                     signer
                 )
+                const chairperson_address = await TaskContract.chairperson();
+                    if (chairperson_address !== address) {
+                    return "UnAuthorise Access";
+                    }
                 const data = await TaskContract.AddPatient(address,name)
                 setdata1(data)
             } else {
@@ -41,7 +45,7 @@ export const AddPatientByDoctor = () => {
         }
         return 2
     }
-    if(Sucess === 0){
+    if(Sucess === "UnAuthorise Access"){
         return <div class="alert alert-danger" role="alert">
             Please Install Ethereum
         </div>
