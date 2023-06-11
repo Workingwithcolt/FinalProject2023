@@ -6,6 +6,10 @@ import TaskAbi from "../utils/TaskContract.json";
 import { useState,useEffect } from "react";
 
 export const Patient = () => {
+  const queryString =window.location.search
+
+  const params = new URLSearchParams(queryString);
+  const addresss = params.get("address");
     const [medicalMed, setMedicalMed] = useState([]);
     const [quantity,setquantity] = useState(0)
     // SubstractMedicine(address patient_address,uint256 date,uint256 month,uint256 year,uint256 substract,string memory name)
@@ -22,10 +26,7 @@ export const Patient = () => {
                   TaskAbi.abi,
                   signer
                 )
-                const chairperson_address = await TaskContract.chairperson()
-                if (chairperson_address === address) {
-                  return "UnAuthorise Access"
-                }
+
                   const d = await TaskContract.GetAllMedicine(address)
                   setMedicalMed(d)
           } else {
@@ -40,7 +41,7 @@ export const Patient = () => {
       console.log(medicalMed)
       
       useEffect(() => {
-        MedicalMedicines("0xc43A619Af76b7AF03f010f1Aa688eeBc050F9f23");
+        MedicalMedicines(addresss);
       },[quantity]);
 
       const SubstractMedic = async (patient_address,date,month,year,substract,name) => {
@@ -55,10 +56,6 @@ export const Patient = () => {
               TaskAbi.abi,
               signer
             );
-            const chairperson_address = await TaskContract.chairperson();
-            if (chairperson_address === patient_address) {
-              return "UnAuthorise Access";
-            }
             await TaskContract.SubstractMedicine(patient_address,date,month,year,substract,name)
           } else {
             return 1;
@@ -69,7 +66,7 @@ export const Patient = () => {
         return data;
       };
       const handleSubstract = (date,month,year,substract,name)=>{
-        SubstractMedic("0xc43A619Af76b7AF03f010f1Aa688eeBc050F9f23",date,month,year,substract,name)
+        SubstractMedic(addresss,date,month,year,substract,name)
         // MedicalMedicines("0xc43A619Af76b7AF03f010f1Aa688eeBc050F9f23");
         setMedicalMed(1)
         setquantity(0)

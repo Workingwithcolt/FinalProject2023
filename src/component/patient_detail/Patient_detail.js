@@ -6,13 +6,24 @@ export const Patient_detail = (props) => {
     const navigate = useNavigate()
     console.log(props)
     const handleClick = async () => {
-        navigate({
-            pathname: "/login/Docter/patient/",
-            search: createSearchParams({
-                name: props.name,
-                address: props.address
-            }).toString()
-        })
+        console.log(props.IsPharm)
+        if(props.IsPharm === "true"){
+            navigate({
+                pathname: "/patOtp",
+                search: createSearchParams({
+                    address: props.address
+                }).toString()
+            })
+            // navigate("/patientpharm")
+        }else{
+            navigate({
+                pathname: "/login/Docter/patient/",
+                search: createSearchParams({
+                    name: props.name,
+                    address: props.address
+                }).toString()
+            })
+        }
     }
     return (
         <>

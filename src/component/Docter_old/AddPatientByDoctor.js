@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
 import "./docter.css";
 import { child, get, ref, set } from "firebase/database";
-import { db } from "../Firebase/firebase";
+import { db,auth } from "../Firebase/firebase";
 import { TaskContractAddress } from "../../config";
 import { ethers } from "ethers";
 import TaskAbi from "../utils/TaskContract.json";
 import { LoginInfoContext } from "../LoginContext/DataContext";
-
+import { createUserWithEmailAndPassword } from "firebase/auth";
 export const AddPatientByDoctor = () => {
   const { CurrentAccount } = useContext(LoginInfoContext);
   const [Sucess, setSuccess] = useState(false);
@@ -17,8 +17,7 @@ export const AddPatientByDoctor = () => {
   const [pass, setpass] = useState("");
   const [email, setEmail] = useState("");
   const [data1, setdata1] = useState();
-  // AddPatient(address patient,string memory name)
-
+  // AddPatient(address patient,string memory name)     
   const AddDocterBypatient = async (name, address) => {
     try {
       const { ethereum } = window;
@@ -95,6 +94,20 @@ export const AddPatientByDoctor = () => {
         setSuccess(1)
     }
   };
+  const handleAdd = ()=>{
+    signUp()
+    insertData()
+
+  }
+  const signUp = async () =>{
+    //e.preventDefault();
+    createUserWithEmailAndPassword(auth,email,pass)
+    .then((userCredential)=>{
+        console.log(userCredential)
+    }).catch((error)=>{
+        console.log(error);
+    })
+}
 
   return (
     <div className="auth-form-container1">
@@ -145,7 +158,7 @@ export const AddPatientByDoctor = () => {
             setpass(e.target.value);
           }}
         />
-        <button id="addBtn" onClick={insertData}>
+        <button id="addBtn" onClick={()=>handleAdd()}>
           Add Data
         </button>
       </div>

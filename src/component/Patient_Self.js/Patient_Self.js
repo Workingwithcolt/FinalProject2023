@@ -7,7 +7,7 @@ import { ethers } from "ethers";
 import TaskAbi from "../utils/TaskContract.json";
 
 export const Patient_Self = ({ addresss }) => {
-  const { Access, setAccess } = useContext(LoginInfoContext);
+  const { Access, setAccess,CurrentAccount} = useContext(LoginInfoContext);
   const [medicalMed, setMedicalMed] = useState([]);
   const MedicalMedicines = async (address) => {
     const data = null;
@@ -37,7 +37,7 @@ export const Patient_Self = ({ addresss }) => {
   };
 
   useEffect(() => {
-    MedicalMedicines("0xc43A619Af76b7AF03f010f1Aa688eeBc050F9f23");
+    MedicalMedicines(CurrentAccount);
   });
   console.log(medicalMed);
 

@@ -9,10 +9,13 @@ import "react-phone-input-2/lib/style.css";
 import { auth } from "../Firebase/firebase";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { toast, Toaster } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate } from "react-router-dom";
 
 
 export const PatOtp = () => {
+  var queryString = window.location.search
+    const params = new URLSearchParams(queryString);
+    const  patientaddreee = params.get("address");
   const [otp, setOtp] = useState("");
   const [ph, setPh] = useState("");
   const [loading, setLoading] = useState(false);
@@ -65,7 +68,13 @@ export const PatOtp = () => {
         console.log(res);
         setUser(res.user);
         setLoading(false);
-        nav('/pharmacist/pharmprescription/')
+        nav({
+          pathname: "/patientpharm",
+          search: createSearchParams({
+              address: patientaddreee
+          }).toString()
+      })
+
       })
       .catch((err) => {
         console.log(err);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './login.css';
-import { useNavigate } from "react-router-dom";
+import { createSearchParams, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase/firebase";
 
@@ -14,7 +14,13 @@ export const PharmLogin = ({name}) => {
         signInWithEmailAndPassword(auth,email,password)
         .then((userCredential)=>{
             console.log(userCredential.user)
-            navigate(`/${name}/patotp/`)
+            // navigate(`/${name}/patotp/`)
+            navigate({
+                pathname: "/login/Doctor",
+                search: createSearchParams({
+                    IsPharm:true
+                }).toString()
+            })
         }).catch((error)=>{
             console.log(error);
         })
@@ -32,7 +38,7 @@ export const PharmLogin = ({name}) => {
                 <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@gmail.com" id="email" name="email" />
                 <label htmlFor="password">Password</label>
                 <input value={password} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" />
-                <button >Log In</button>
+                <button>Log In</button>
             </form>
             <button className="link-btn1" onClick={handleClick}>Don't have an account? Register here.</button>
         </div>

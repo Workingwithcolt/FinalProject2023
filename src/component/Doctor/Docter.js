@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import './docter.css'
 import { useState } from 'react';
 // export const otp_number = uuidv4();
@@ -11,11 +11,16 @@ import { logout } from '../ContractMethod';
 import Logout from '../Logout/logout';
 import { db } from '../Firebase/firebase';
 import { onValue, ref } from "firebase/database";
+import { Patient_Self } from '../Patient_Self.js/Patient_Self';
 
 const dataBase = db;
 var records = [];
 
-export const Docter = () => {
+export const Docter = (props) => {
+    var queryString = window.location.search
+    const params = new URLSearchParams(queryString);
+    const IsPharm = params.get("IsPharm");
+    console.log(IsPharm)
     const i = require('../../img/doctor.png')
     const dbRef = ref(dataBase, "Doctor/Patient");
     onValue(dbRef, (snapshot) => {
@@ -26,7 +31,6 @@ export const Docter = () => {
         records.push({ key: keyName, data: data });
       });
     });
-    console.log(records)
     const navigate = useNavigate()
     const {data,Access,SetCurrentAccount,SetAccess} = useContext(LoginInfoContext)
     console.log("it is data")
@@ -90,7 +94,7 @@ export const Docter = () => {
                    {
                     records.map((patient,index)=>(
                         // {console.log(patient.data.Email)}
-                        (<Patient_detail key = {index} address = {patient.data.PubKey} name= {patient.data.Email} />)
+                        (<Patient_detail IsPharm = {IsPharm} key = {index} address = {patient.data.PubKey} name= {patient.data.Email} />)
                     ))
                     }
             </div>

@@ -23,7 +23,7 @@ import { PharmLogin } from './component/Pharmacist/PharmLogin';
 import { PatOtp } from './component/Pharmacist/PatOtp';
 import { PharmPrescription } from './component/Pharmacist/PharmPrescription';
 import { AddPatientByDoctor } from './component/Docter_old/AddPatientByDoctor';
-
+import { PharmRegister } from './component/Pharmacist/PharmRegister';
 
 function App(props) {
   const navigate = useNavigate()
@@ -93,6 +93,15 @@ function App(props) {
             </LoginContext>
           } />
 
+<Route
+          path="/patOtp"
+          element={
+            <LoginContext>
+              <PatOtp/>
+            </LoginContext>
+          } />
+
+
           <Route
           path="/pharmasist/patotp/"
           element={
@@ -106,6 +115,14 @@ function App(props) {
               <Login name={"Patient"} />
             </LoginContext>
           } />
+          <Route
+          path="/patientpharm"
+          element={
+            <LoginContext>
+              <Patient/>
+            </LoginContext>
+          } />
+          
 
 <Route
           path="/login/Docter/addPatient/"
@@ -147,10 +164,15 @@ function App(props) {
           } />
         <Route
           path="/login/Pharmasist"
-          element={<Patient />
+          element={
+          <LoginContext>
+          <Patient />
+          </LoginContext>
           } />
 
         <Route path={`/login/Docter/patient`} element={<LoginContext><Patient_Detail_Docter_Side  /></LoginContext>} /> 
+        <Route path={`/pharmacist/signup/`} element={<LoginContext><PharmRegister/></LoginContext>} /> 
+        {/* /pharmacist/login/ */}
       </Routes>
 
 
