@@ -8,6 +8,7 @@ import { Login } from "./component/Login/Login";
 import { Register } from "./Register";
 import LoginBar from './component/loginbar/LoginBar';
 import { Docter } from "./component/Doctor/Docter"
+
 // import Patient from "./component/Patients/Patient"
 import { Patient_Detail_Docter_Side } from "./component/Detail_Docter/Patient_Detail_Docter_Side"
 import { Patient_Self } from './component/Patient_Self.js/Patient_Self';
@@ -80,7 +81,7 @@ function App(props) {
           path="/registers/docter"
           element={
             <LoginContext>
-              <Login name={"Docter"} />
+              <Login name={"Doctor"} />
             </LoginContext>
           } />
 
@@ -130,7 +131,7 @@ function App(props) {
           } />
 
         <Route
-          path="/login/Docter"
+          path="/login/Doctor"
           element={
             <LoginContext>
               <Docter />

@@ -72,6 +72,8 @@ const connectWallet = async () => {
       console.log("Error connecting to metamask", error);
     }
   };
+  // 909965cb99146f12f2a19493d2af8f1191ceebcbafe39a48b8ea074834cb9d9f
+  console.log(CurrentAccount)
   return (
     <div className="auth-form-container1">
       <h2>{props.name}</h2>

@@ -1,9 +1,10 @@
 import React from 'react'
-import "./patient_detail.css"
+import '../Doctor/docter.css'
 import { useNavigate } from 'react-router-dom'
 import { createSearchParams } from 'react-router-dom'
 export const Patient_detail = (props) => {
     const navigate = useNavigate()
+    console.log(props)
     const handleClick = async () => {
         navigate({
             pathname: "/login/Docter/patient/",
@@ -15,15 +16,15 @@ export const Patient_detail = (props) => {
     }
     return (
         <>
-            <div className='_patient'>
-                <button onClick={handleClick}>
+            <div className='patient'>
+                <button className="doctor" onClick={handleClick}>
                     {/* //initialy i store  the publlic key to the database when i map through that data 
                     //i pass the key to the component in the component i call  */}
 
-                    <div className='_patient_name'>
+                    <div className='patient_name'>
                         {props.name}
                     </div>
-                    <div className='_Address_container'>
+                    <div className='Address_container'>
                         {props.address}
                     </div>
 

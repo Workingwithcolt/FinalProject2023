@@ -16,7 +16,7 @@ const dataBase = db;
 var records = [];
 
 export const Docter = () => {
-
+    const i = require('../../img/doctor.png')
     const dbRef = ref(dataBase, "Doctor/Patient");
     onValue(dbRef, (snapshot) => {
       records = [];
@@ -62,44 +62,37 @@ export const Docter = () => {
         )
     }
     return (
-        <div className='_container'>
-            <div className='_container_first'>
-                {/* name */}
-                <div className='_Name_container'>
-                    Dr.Rokde
+        <div className='container1'>
+            <div className='container_first'>
+                <div className="our-team">
+                    <div className="picture">
+                        <img src={i}/>
+                    </div>
+                    <div className="team-content">
+                        <h3 className="name">Dr. Bhosale</h3>
+                        <h4 className="title">Doctor</h4>
+                    </div>
                 </div>
+
                 <Logout Access = {Access} handleChange={handleChange}/>
                 {/* addres */}
-                <div className='_Address_container'>
+                <div className='Address_container1'>
                     0xe66d125041f0eabc15E0dEe318aBF49f8c864451
                 </div>
-            </div>
-            <div 
-            style={{
-                display:"flex",
-                flexDirection:"row",
-                justifyContent:"flex-end",
-                marginBottom:"3rem",
-                padding:"30px",
-                fontWeight:"bold",
-                color:"red",
-                fontSize:"20px",
-                cursor:"pointer"
-            }}
-            onClick={handleShow}>
-                +AddPatient
+                <div className='add' onClick={handleShow}>+Add New Patient</div>
             </div>
             
-            <div className="_container_second">
+            
+            <div className="container_second">
                 {/* medicines */}
                    {/* < Patient_detail name = {"Chean"} address = {"0xe66d125041f0eabc15E0dEe318aBF49f8c864451"}/> */}
-                   <Patient_detail   name = {"0x28E333A6a6fb924fcAcaA5676588168A297c42E7"} address= {"mohitechetan2019@gmail.com"} />
-                   {/* {
+                   {/* <Patient_detail   name = {"0x28E333A6a6fb924fcAcaA5676588168A297c42E7"} address= {"mohitechetan2019@gmail.com"} /> */}
+                   {
                     records.map((patient,index)=>(
                         // {console.log(patient.data.Email)}
-                        (<Patient_detail key = {index} name = {patient.data.PubKey} address= {patient.data.Email} />)
+                        (<Patient_detail key = {index} address = {patient.data.PubKey} name= {patient.data.Email} />)
                     ))
-                    } */}
+                    }
             </div>
 
         </div>

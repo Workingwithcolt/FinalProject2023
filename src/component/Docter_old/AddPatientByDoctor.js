@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import "./Docter.css"
+import "./docter.css"
 import { child, get, ref, set } from "firebase/database";
 import { db } from "../Firebase/firebase";
 import { TaskContractAddress } from '../../config';

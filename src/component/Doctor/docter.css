@@ -1,39 +1,64 @@
-._container{
-    background-color:rgb(79, 33, 178);
-    height:730px;
-    
+.container1{
+    background-color:#f0f0ec;
+    height:100%;
+    width: 100%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-._container:hover{
-    box-shadow: 10px 10px 10px 10px rgba(117, 163, 198, 0.9);
-}
-._container_first{
+.container_first{
     display:grid;
     grid-template-columns: 0.3fr 1fr;
     padding-top:3rem;
     padding-left: 3rem;
 }
-._Name_container{
+.Name_container{
     color:aliceblue;
     height:50px;
-    background-color: red;
-    width: 50%;
+    background-color: rgb(44, 151, 151);
+    width: fit-content;
     font-weight: bold;
     font-size: 2rem;
     padding-left: 10px;
+    padding-right: 10px;
     border-radius: 10px;
 }
-._Address_container{
+.Address_container{
     color:aliceblue;
     height:50px;
-    background-color: red;
-    width:75%;
+    background-color: rgb(44, 151, 151);
     font-weight: bold;
-    font-size: 2rem;
-    padding-left: 10px;
+    font-size: 2rem;/* 
+    padding-left: 100px; */
     border-radius: 10px;
 }
+.Address_container1{
+    color:aliceblue;
+    height:50px;
+    background-color: rgb(44, 151, 151);
+    font-weight: bold;
+    font-size: 2rem;
+    border-radius: 10px;
+    margin-left: 100%;
+    width: fit-content;
+    margin-bottom: 10px;
+    margin-top: 50px;
+}
+.add{
+    width: fit-content;
+    margin-left: 350px;
+    background-color: transparent;
 
-._container_second{
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.container_second{
+    display: flex;
+    flex-direction: column;
+}
+.container_second{
     display: flex;
     flex-direction: column;
     overflow-y:scroll;
@@ -41,15 +66,94 @@
     transform-style: preserve-3d;
     perspective: 1px;
     border-radius: 1.5rem;
+    padding-bottom: 120px;
 }
-._container_second::-webkit-scrollbar{
+.container_second::-webkit-scrollbar{
     width:6px;
 }
-._container_second::-webkit-scrollbar-track{
+.container_second::-webkit-scrollbar-track{
     background-color: #e4e4e4;
     border-radius: 100px;
 }
-._container_second::-webkit-scrollbar-thumb{
+.container_second::-webkit-scrollbar-thumb{
      background-color: #22ebb9;
      border-radius: 100px;
 }
+    /* .addpatient{
+        padding-top: 20pt;
+        margin-top:auto;    
+        margin-left: 40pt;
+        float: right;
+    } */
+
+.patient{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(196, 228, 13);
+    margin-bottom:10px;
+    width:65%;
+    margin-top:3rem;
+    margin-left:20%;
+    margin-right: auto;
+    /* padding:10px; */
+    border-radius: 1rem;   
+    cursor: pointer;
+}
+.patient_name{
+    display:grid;
+    grid-template-columns: 1fr 0.4fr;
+    color:rgb(19, 131, 103);
+    font-weight: bold;
+    font-size: 30px;
+    text-align: left;
+}
+.medicine_quantity{
+    color:rgb(68, 46, 65);
+    font-weight: bold;
+    font-size: 15px;
+}
+.date{
+    color:rgb(44, 151, 151);
+}
+.doctor{
+    background-color: aquamarine;
+}
+button.docter{
+    background-color: rgb(196, 228, 13);
+}
+ .our-team {
+    padding: 30px 0 10px;
+    margin-top:2px;
+    background-color: #f7f5ec;
+    text-align: center;
+    overflow: hidden;
+    position: absolute;
+    height: 300px;
+    width: 200px;
+    
+  }
+  
+  .our-team .picture {
+    display: inline-block;
+    height: 130px;
+    width: 130px;
+    margin-bottom: 50px;
+    z-index: 1;
+    position: relative;
+  }
+  .our-team .picture img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: all 0.9s ease 0s;
+ }
+  .our-team .title {
+    display: block;
+    font-size: 15px;
+    color: #4e5052;
+    text-transform: capitalize;
+  }
+  h3.name{
+    color: rgb(44, 151, 151);;
+  }

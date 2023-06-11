@@ -4,11 +4,12 @@ import { useState } from 'react'
 import { ethers } from "ethers";
 import TaskAbi from "../utils/TaskContract.json"
 import { TaskContractAddress } from '../../config';
+import { useEffect } from 'react';
 
 export default function MedicalMedicine(props) {
-  const { CurrentAccount } = useContext(LoginInfoContext)
-  const [value, setValue] = useState(" ")
-
+  const [value, setValue] = useState(0)
+  const [datalist,setdatalist] = useState()
+  var date;
   const AddMedicineByDocter = async (medicine_name
     , quantity, address, date, year, month) => {
     try {
@@ -27,7 +28,6 @@ export default function MedicalMedicine(props) {
         }
         const data = await TaskContract.AddMedicineByDocter(medicine_name,
           quantity, address, date, year, month);
-
       } else {
         return "Please Install Ethereum"
       }
@@ -36,14 +36,19 @@ export default function MedicalMedicine(props) {
     }
     return "Success";
   }
-  const HandleAdd = (e) => {
+  useEffect(()=>{
+    date = new Date()
+  })
+  console.log(props.pub_key)  
+  const HandleAdd =  (e) => {
     e.preventDefault()
     if (parseInt(value) > 1) {
-      const date = new Date()
-      AddMedicineByDocter(props.name, parseInt(value), CurrentAccount, date.getDay(), date.getFullYear(), date.getMonth())
+      const data=  AddMedicineByDocter(props.name,value, props.pub_key, date.getDate(), date.getFullYear(), date.getMonth()+1)
+      console.log(data)
     }
-    setValue(" ")
+    setValue(0)
   }
+  console.log(value)
   return (
     <>
       <form onSubmit={HandleAdd}>

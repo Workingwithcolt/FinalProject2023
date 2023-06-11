@@ -6,7 +6,7 @@ export default styled.div`
   align-items: center;
   height: 400px;
   width: 100%;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
+  font-family:'Jost', 'sans-serif';
   color: black;
   margin: 0 15px;
   font-size: 2.9em;

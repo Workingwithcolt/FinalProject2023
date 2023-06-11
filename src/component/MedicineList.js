@@ -1,4 +1,4 @@
-let medicine=[
+export const medicine=[
     {
         "name":"Thorazine"
     },{
